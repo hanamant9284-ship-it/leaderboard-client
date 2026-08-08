@@ -67,3 +67,26 @@ export async function postRollover(payload = {}){
 }
 
 export default { getLeaderboard, getMyRank, postEvent, putPointsConfig, postRollover };
+
+// Auth endpoints
+export async function signup(payload = {}){
+  const res = await fetch(`${API_BASE}/auth/signup`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw body;
+  return body;
+}
+
+export async function login(payload = {}){
+  const res = await fetch(`${API_BASE}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok) throw body;
+  return body;
+}

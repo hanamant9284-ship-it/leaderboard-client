@@ -6,6 +6,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import LeaderboardPage from './components/LeaderboardPage';
 import Landing from './components/Landing';
+import AuthPage from './components/AuthPage';
 
 function App(){
   return (
@@ -17,6 +18,8 @@ function App(){
             <Link to="/">Welcome</Link>
             {' '}|{' '}
             <Link to="/leaderboard">Leaderboard</Link>
+              {' '}|{' '}
+              <Link to="/auth">Auth</Link>
           </nav>
         </header>
         <main>
@@ -24,6 +27,7 @@ function App(){
             <Route path="/" element={<Landing />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/rank" element={<LeaderboardPage />} />
+              <Route path="/auth" element={<AuthPage />} />
           </Routes>
         </main>
       </div>
